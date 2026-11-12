@@ -107,7 +107,9 @@ public class DoublyLinkedList<T>
 
         _count--;
 
-        GC.Collect();     
+        //Avoid memory leak
+        element.Previous = null;
+        element.Next = null;
     }
 
     public void Print()
